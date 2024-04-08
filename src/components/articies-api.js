@@ -14,22 +14,25 @@ export const getMovies = async () => {
   return data;
 };
 
-// export const getMoviesByQuary = async () => {
-//   const { data } = await axios.get('/search/movie', options);
-//   return data;
-// };
+export const getMoviesByQuary = async query => {
+  const { data } = await axios.get('search/movie', {
+    ...options,
+    params: { query },
+  });
+  return data;
+};
 
-// export const getMoviesById = async id => {
-//   const { data } = await axios.get(`/movie/${id}`, options);
-//   return data;
-// };
+export const getMoviesById = async id => {
+  const { data } = await axios.get(`movie/${id}`, options);
+  return data;
+};
 
-// export const getMoviesCredits = async id => {
-//   const { data } = await axios.get(`/movie/${id} / credits`, options);
-//   return data;
-// };
+export const getMoviesCredits = async id => {
+  const { data } = await axios.get(`/movie/${id} / credits`, options);
+  return data;
+};
 
-// export const getMoviesReviews = async id => {
-//   const { data } = await axios.get(`/movie/${id}/reviews`, options);
-//   return data;
-// };
+export const getMoviesReviews = async id => {
+  const { data } = await axios.get(`/movie/${id}/reviews`, options);
+  return data;
+};

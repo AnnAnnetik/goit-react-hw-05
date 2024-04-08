@@ -11,7 +11,7 @@
 // import LoadMoreBtn from '../../components/Button/LoadMoreBtn';
 
 // const MoviesPage = () => {
-const [query, setQuery] = useState('');
+// const [query, setQuery] = useState('');
 //   const [page, setPage] = useState(1);
 //   const [isLoading, setIsLoading] = useState(false);
 //   const [error, setError] = useState(null);
@@ -23,9 +23,9 @@ const [query, setQuery] = useState('');
 //     description: '',
 //   });
 
-const hendleSubmit = query => {
-  setQuery(query);
-};
+// const hendleSubmit = query => {
+//   setQuery(query);
+// };
 
 //   useEffect(() => {
 //     if (!query) return;
