@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import MovieCast from '../MovieCast/MovieCast';
+import MovieReviews from '../MovieReviews/MovieReviews';
 
 export const MovieListDetails = ({ movies }) => {
   const defaultImg =
@@ -19,25 +22,32 @@ export const MovieListDetails = ({ movies }) => {
           <h2>
             {movies.title} ({movies.release_date.split('-')[0]})
           </h2>
-          <p>User Score</p>
+          <p>User Score: {Math.round(movies.vote_average * 10)} %</p>
+
           <p>Overview </p>
           <p>{movies.overview}</p>
           <p>Genres </p>
-          <p>Genres {movies.genres.join(', ')}</p>
+          <p>
+            {movies.genres
+              .map(genre => {
+                return genre.name;
+              })
+              .join(', ')}
+          </p>
         </li>
-      </ul>
-      <h4>Additional information</h4>
-      <ul>
-        <li>
-          <Link to={`/movies/${movies.id}/credits`} state={location}>
-            Cast
-          </Link>
-        </li>
-        <li>
-          <Link to={`/movies/${movies.id}/reviews`} state={location}>
-            Reviews
-          </Link>
-        </li>
+        <h4>Additional information</h4>
+        <ul>
+          <li>
+            <Link to="credits">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+            <Routes>
+              <Route path="credits" element={<MovieCast />}></Route>
+              <Route path="reviews" element={<MovieReviews />}></Route>
+            </Routes>
+          </li>
+        </ul>
       </ul>
     </div>
   );
