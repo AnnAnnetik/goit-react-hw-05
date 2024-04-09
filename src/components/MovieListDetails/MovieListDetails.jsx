@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import MovieCast from '../MovieCast/MovieCast';
 import MovieReviews from '../MovieReviews/MovieReviews';
 
-export const MovieListDetails = ({ movies }) => {
+export const MovieListDetails = ({ movie }) => {
   const defaultImg =
     'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
 
@@ -13,22 +13,22 @@ export const MovieListDetails = ({ movies }) => {
         <li>
           <img
             src={
-              movies.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${movies.poster_path}`
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
                 : defaultImg
             }
-            alt={movies.title}
+            alt={movie.title}
           />
           <h2>
-            {movies.title} ({movies.release_date.split('-')[0]})
+            {movie.title} ({movie.release_date.split('-')[0]})
           </h2>
-          <p>User Score: {Math.round(movies.vote_average * 10)} %</p>
+          <p>User Score: {Math.round(movie.vote_average * 10)} %</p>
 
           <p>Overview </p>
-          <p>{movies.overview}</p>
+          <p>{movie.overview}</p>
           <p>Genres </p>
           <p>
-            {movies.genres
+            {movie.genres
               .map(genre => {
                 return genre.name;
               })

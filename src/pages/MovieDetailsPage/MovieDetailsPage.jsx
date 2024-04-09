@@ -8,7 +8,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import MovieListDetails from '../../components/MovieListDetails/MovieListDetails';
 
 const MovieDetailsPage = () => {
-  const [movies, setMovies] = useState(null);
+  const [movie, setMovie] = useState(null);
   const [error, setError] = useState(false);
   const [isLoader, setLoader] = useState(false);
   const { movieId } = useParams();
@@ -19,7 +19,7 @@ const MovieDetailsPage = () => {
       setLoader(true);
       try {
         const data = await getMoviesById(movieId);
-        setMovies(data);
+        setMovie(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -32,8 +32,8 @@ const MovieDetailsPage = () => {
   return (
     <div>
       {error && <ErrorMessage />}
-      {movies && (
-        <MovieListDetails movies={movies} from={location} defLocation="/" />
+      {movie && (
+        <MovieListDetails movie={movie} from={location} defLocation="/" />
       )}
 
       {isLoader && !error && <Loader />}
