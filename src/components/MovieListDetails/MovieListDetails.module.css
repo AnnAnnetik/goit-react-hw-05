@@ -1,0 +1,17 @@
+.movie.details {
+  display: flex;
+  align-items: flex-start;
+}
+
+.movie.details img {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.movie.details h2 {
+  margin-top: 0;
+}
+
+.movie.details p {
+  margin: 0;
+}
